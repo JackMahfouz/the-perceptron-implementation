@@ -17,7 +17,6 @@ class perceptron:
         xi = np.array(xi)
         f = np.dot(xi, self.W[1:])+self.W[0]
         return unit_activation(f)
-        return
     def fit(self, X, y):
         """sumary_line
         
