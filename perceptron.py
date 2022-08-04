@@ -1,4 +1,3 @@
-import this
 import numpy as np
 def unit_activation(f):
     """sumary_line
@@ -32,5 +31,16 @@ class perceptron:
                 self.W[1:] = self.W[1:] + self.eta*(yi-y_hat_i)*xi
                 self.W[0] = self.W[0] + self.eta*(yi-y_hat_i)
             print("loss : {}, weights : {}, bias : {}".format(self.eta*(yi-y_hat_i), self.W[1:], self.W[0]))
-
+    def accuracy(self, x_test,y_test):
+        """sumary_line
+        
+        Keyword arguments:
+        x_test the features test values
+        y_test is the real values (ground truth)
+        returns the accuray of the model
+        """
+        y_hat = self.predict(x_test)
+        xor =np.array(np.logical_xor(y_test, y_hat))
+        xor = np.where(xor==True, 1, 0)
+        return np.count_nonzero(xor)/len(x_test)
             
