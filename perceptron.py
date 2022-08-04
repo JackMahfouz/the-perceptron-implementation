@@ -41,5 +41,5 @@ class perceptron:
         """
         xor =np.array(np.logical_xor(y_test, y_hat))
         xor = np.where(xor==True, 1, 0)
-        return np.count_nonzero(xor)/len(y_test)
+        return (1 - (np.count_nonzero(xor)/len(y_test)))
             
